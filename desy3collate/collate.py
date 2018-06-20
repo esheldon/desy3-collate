@@ -136,7 +136,7 @@ class Collator(object):
         """
         fix columns that are known to have NaN etc.
         """
-        for name in ['psf_e1','psf_e2','psf_size']:
+        for name in ['psf_e1','psf_e2','psf_T']:
             w,=np.where(np.isfinite(data[name])==False)
             if w.size > 0:
                 #print("        fixing %d NaN in %s" % (w.size,name))

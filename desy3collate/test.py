@@ -15,8 +15,8 @@ import glob
 import esutil as eu
 import random
 
-from . import mcal_util
-from .mcal_util import dgamma
+from . import util
+from .util import dgamma
 
 class Namer(object):
     """
@@ -80,19 +80,19 @@ class Tester(object):
         """
         from numpy import all
 
-        nbands = mcal_util.get_nbands_from_pars(data['mcal_pars'][0])
-        bands=mcal_util.get_bands(nbands)
+        nbands = util.get_nbands_from_pars(data['mcal_pars'][0])
+        bands=util.get_bands(nbands)
 
         for n in ['flags','mask_frac']:
             assert all(data[n] == matches[n])
 
-        for type in mcal_util.MCAL_SHEAR_TYPES:
+        for type in util.MCAL_SHEAR_TYPES:
             n=Namer(type=type)
                 
             assert all(data[n('mcal_g')][:,0] == matches[n('e1')])
             assert all(data[n('mcal_g')][:,1] == matches[n('e2')])
 
-            assert all(data[n('mcal_T_r')] == matches[n('size')])
+            assert all(data[n('mcal_T_r')] == matches[n('T')])
             assert all(data[n('mcal_s2n_r')] == matches[n('snr')])
 
             pn=n('mcal_pars')

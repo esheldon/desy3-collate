@@ -1,14 +1,3 @@
-"""
-notes
-
-    reorder to match all to main gold cat
-        - combine collated region files first
-
-collation of all regions into one big file
-    region column
-
-negation of flags into mcal_select field
-"""
 from __future__ import print_function
 from collections import OrderedDict
 import os
@@ -44,11 +33,11 @@ MCAL_NAME_MAP=OrderedDict([
 
     ('psf_e1',           {'name':'psfrec_g',   'dt':'f8', 'el':0}),
     ('psf_e2',           {'name':'psfrec_g',   'dt':'f8', 'el':1}),
-    ('psf_size',         {'name':'psfrec_T',   'dt':'f8', 'el':None}),
+    ('psf_T',            {'name':'psfrec_T',   'dt':'f8', 'el':None}),
 
     ('mcal_psf_e1',      {'name':'mcal_gpsf',  'dt':'f8', 'el':0}),
     ('mcal_psf_e2',      {'name':'mcal_gpsf',  'dt':'f8', 'el':1}),
-    ('mcal_psf_size',    {'name':'mcal_Tpsf',  'dt':'f8', 'el':None}),
+    ('mcal_psf_T',       {'name':'mcal_Tpsf',  'dt':'f8', 'el':None}),
 ])
 
 DEC_MIN=-60.0
@@ -76,8 +65,8 @@ MCAL_SELECT_FLAGS = {
 MCAL_SHEAR_NAME_MAP = OrderedDict([
     ('e1',         {'name':'mcal_g',     'dt':'f8', 'el':0}),
     ('e2',         {'name':'mcal_g',     'dt':'f8', 'el':1}),
-    ('size',       {'name':'mcal_T_r',   'dt':'f8', 'el':None}),
-    ('size_err',   {'name':'mcal_T_err', 'dt':'f8', 'el':None}),
+    ('T',          {'name':'mcal_T_r',   'dt':'f8', 'el':None}),
+    ('T_err',      {'name':'mcal_T_err', 'dt':'f8', 'el':None}),
     ('snr',        {'name':'mcal_s2n_r', 'dt':'f8', 'el':None}),
     ('covmat_0_0', {'name':'mcal_g_cov', 'dt':'f8', 'el':(0,0)}),
     ('covmat_0_1', {'name':'mcal_g_cov', 'dt':'f8', 'el':(0,1)}),
